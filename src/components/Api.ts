@@ -1,6 +1,6 @@
 // src/Api.ts
 
-const API_URL = 'http://18.223.164.123:5000';
+const API_URL = 'https://18.223.164.123:5000';
 
 export const loginUser = async (email: string, password: string) => {
   try {
