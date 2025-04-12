@@ -16,6 +16,8 @@ const LoginForm = () => {
         const data = await loginUser(email, password);
         localStorage.setItem('token', data.token);
         window.location.href = '/users';
+        console.log('Enviando:', { email, password });
+
       } catch (err: any) {
         setError('Hubo un error al intentar iniciar sesión');
       }

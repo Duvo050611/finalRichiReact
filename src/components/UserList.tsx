@@ -34,11 +34,16 @@ const UserList: React.FC = () => {
     navigate(`/edit/${userId}`);
   };
 
+  const handleCreateUser = () => {
+    navigate('/register');
+  };
+
   return (
     <div>
       <h2>Lista de Usuarios</h2>
       <ul>
-        {users.map((user) => (
+      <button onClick={handleCreateUser}>Crear</button>
+      {users.map((user) => (
           <li key={user.id}>
             {user.username} ({user.email})
             <button onClick={() => handleDelete(user.id)}>Eliminar</button>
