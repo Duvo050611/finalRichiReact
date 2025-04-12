@@ -12,7 +12,7 @@ const EditUser: React.FC = () => {
     const fetchUser = async () => {
       try {
         const result = await getUserById(Number(id));
-        setUser(result);  // Asegúrate que el result contiene el usuario
+        setUser(result);  
       } catch (error) {
         console.error('Error al obtener usuario:', error);
       }
@@ -25,7 +25,7 @@ const EditUser: React.FC = () => {
     e.preventDefault();
     try {
       await updateUser(Number(id), user);
-      navigate('/');
+      navigate('/users');
     } catch (error) {
       console.error('Error al actualizar usuario:', error);
     }

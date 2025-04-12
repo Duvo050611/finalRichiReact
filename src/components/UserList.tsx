@@ -2,9 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { getUsers, deleteUser } from './Api';
+import { useNavigate } from 'react-router-dom';
 
 const UserList: React.FC = () => {
   const [users, setUsers] = useState<any[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -28,6 +30,10 @@ const UserList: React.FC = () => {
     }
   };
 
+  const handleEditUser = (userId: number) => {
+    navigate(`/edit/${userId}`);
+  };
+
   return (
     <div>
       <h2>Lista de Usuarios</h2>
@@ -36,6 +42,7 @@ const UserList: React.FC = () => {
           <li key={user.id}>
             {user.username} ({user.email})
             <button onClick={() => handleDelete(user.id)}>Eliminar</button>
+            <button onClick={() => handleEditUser(user.id)}>Editar</button>
           </li>
         ))}
       </ul>
